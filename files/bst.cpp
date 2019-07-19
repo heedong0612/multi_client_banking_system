@@ -127,7 +127,14 @@ void BSTree::makeEmpty(Node* curr) {
     if (curr != nullptr) {
         makeEmpty(curr->left);
         makeEmpty(curr->right);
+        
         delete curr->data;
+        curr->data = nullptr;
+        
+        curr->left = nullptr;
+        curr->right = nullptr;
+        
+        delete curr;
         curr = nullptr;
     }
 }
